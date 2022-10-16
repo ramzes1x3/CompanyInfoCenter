@@ -1,0 +1,19 @@
+{
+  "name": "company-info-center",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramzes1x3/CompanyInfoCenter.git"
+  },
+  "author": "Mikhaylov Igor Valerivich KTbo3-6",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramzes1x3/CompanyInfoCenter/issues"
+  },
+  "homepage": "https://github.com/ramzes1x3/CompanyInfoCenter#readme"
+}
