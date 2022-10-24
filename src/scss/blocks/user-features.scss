@@ -1,0 +1,22 @@
+.user-features {
+    width: 100%;
+    padding: 1.5rem;
+
+    box-shadow: 0 0 2rem  $light-violet;
+    border-radius: 2rem;
+
+    &__title {
+        @include font(2.4rem, 1.4, $color: $light-violet);
+        text-align: center;
+    }
+
+    &__list {
+        @include flex(space-around, wrap, $row-gap: 4rem);
+
+        margin: 3.5rem 0 2rem 0;
+    }
+
+    &__item {
+        width: 25rem;
+    }
+}

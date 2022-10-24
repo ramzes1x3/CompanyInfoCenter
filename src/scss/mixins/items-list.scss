@@ -1,0 +1,3 @@
+@mixin items-list() {
+    @include flex(center, wrap, $column-gap: 2rem, $row-gap: 3rem);
+}

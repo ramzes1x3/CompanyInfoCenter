@@ -1,0 +1,18 @@
+@mixin solo-page-item() {
+    @include flex($align-items: center, $direction: column, $row-gap: 2rem);
+
+    padding-bottom: 2rem;
+    
+    @include font(2.4rem, 1.4, $color: $light-pink);
+    text-align: center;
+
+    &__img {
+        width: 80%;
+        border-radius: 5%;
+    }
+    
+    &__button {
+        width: max-content;
+        padding: 0.7rem 2.5rem;
+    }
+}

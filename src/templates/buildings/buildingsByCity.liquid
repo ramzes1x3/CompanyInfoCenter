@@ -1,0 +1,47 @@
+{% layout "defaultLayout.liquid", title: 'BuildingsByCity' %}
+{% assign buildings = this.getBuildings %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">{{ cityName }}</h2>
+
+            <section class="buildings">
+                {% if buildings.length == 0 %} 
+                    <h3 class="buildings__title">
+                        There are no added buildings in this city
+                    </h3>
+                {% else %}
+                    <ul class="buildings__list">
+                            {% for building in buildings %}
+                                <li class="buildings__item buildings-item">
+                                    <img 
+                                        src="/img/building.jpg"
+                                        alt="Картинка здания"
+                                        class="buildings-item__img"
+                                    >
+                                    <address class="buildings-item__full-address">
+                                        Address:
+                                        {{ building.street }},
+                                        {{ building.house }}
+                                    </address>
+                                    <a
+                                        href="/building?id={{ building.id }}"
+                                        class="buildings-item__button button"
+                                    >
+                                        Подробнее
+                                    </a>
+                                    <a
+                                        href="/buildingChangeForm?id={{ building.id }}"
+                                        class="buildings-item__button button"
+                                    >
+                                        Изменить
+                                    </a>
+                                </li>
+                            {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,5 @@
+.companies {
+    &__list {
+        @include items-list();
+    }
+}

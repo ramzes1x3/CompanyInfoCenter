@@ -1,0 +1,39 @@
+{% layout "defaultLayout.liquid", title: 'Cities' %}
+{% assign cities = this.getCities %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Cities!</h2>
+
+            <section class="cities">
+                {% if cities.length == 0 %} 
+                    <h3 class="cities__title">
+                        City list is empty
+                    </h3>
+                {% else %}
+                    <ul class="cities__list">
+                        {% for city in cities %}
+                            <li class="cities__item cities-item">
+                                <img 
+                                    src="/img/city.jpg"
+                                    alt="Картинка здания"
+                                    class="cities-item__img"
+                                >
+                                <p class="cities-item__text">
+                                    Name: {{ city.name }}
+                                </p>
+                                <a
+                                    href="/buildingsByCity?city={{ city.name }}"
+                                    class="cities-item__button button"
+                                >
+                                    Посмотреть здания в этом городе
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+{% endblock %}

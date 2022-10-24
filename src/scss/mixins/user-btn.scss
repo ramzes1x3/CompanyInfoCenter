@@ -1,0 +1,12 @@
+@mixin user-btn() {
+    text-transform: uppercase;
+    
+    &:hover {
+        color: $blue-neon;
+        text-shadow: 0 0 2.5rem $light-violet;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}

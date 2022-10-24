@@ -1,0 +1,45 @@
+{% layout "defaultLayout.liquid", title: 'My companies' %}
+{% assign companies = this.getCompanies %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">My companies!</h2>
+
+            <section class="companies">
+                {% if companies.length == 0 %} 
+                    <h3 class="companies__title">
+                        You do not work in companies that are registered
+                    </h3>
+                {% else %}
+                    <ul class="companies__list">
+                        {% for company in companies %}
+                            <li class="companies__item companies-item">
+                                <img 
+                                    src="/img/company.jpg"
+                                    alt="Картинка здания"
+                                    class="companies-item__img"
+                                >
+                                <p class="companies-item__text">
+                                    Name: {{ company.name }}
+                                </p>
+                                <p class="companies-item__text">
+                                    Number of employees: {{ company.numberOfEmployees }}
+                                </p>
+                                <p class="companies-item__text">
+                                    Foundation year: {{ company.foundationYear }}
+                                </p>
+                                <a
+                                    href="/company?id={{ company.id }}"
+                                    class="companies-item__button button"
+                                >
+                                    Подробнее
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+{% endblock %}

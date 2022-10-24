@@ -1,0 +1,41 @@
+{% layout "defaultLayout.liquid", title: 'Company monitor' %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Welcome to the 'Company monitor' website!</h2>
+
+            <section class="user-features">
+                <h3 class="user-features__title">You can add your own company or its buildings and offices, 
+                    if that company is horribly registered with us
+                </h3>
+                <ul class="user-features__list">
+                    <li class="user-features__item">
+                        <a
+                            href="/companyAddForm"
+                            class="user-features__link button button_violet"
+                        >
+                            Add Company
+                        </a>
+                    </li>
+                    <li class="user-features__item">
+                        <a
+                            href="/buildingAddForm"
+                            class="user-features__link button button_violet"
+                        >
+                            Add building
+                        </a>
+                    </li>
+                    <li class="user-features__item">
+                        <a
+                            href="/officeAddForm"
+                            class="user-features__link button button_violet"
+                        >
+                            Add office
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+{% endblock %}

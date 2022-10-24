@@ -1,0 +1,9 @@
+.buildings {
+    &__list {
+        @include items-list();
+    }
+
+    &__title {
+        @include font(2.4rem, 1.3, $color: $light-violet);
+    }
+}

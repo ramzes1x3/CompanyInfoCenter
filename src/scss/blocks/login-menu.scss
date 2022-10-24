@@ -1,0 +1,17 @@
+.login-menu {
+    @include flex(flex-end, wrap, center, row, 2rem, 1.2rem);
+
+    width: 23%;
+
+    &__btn-sign-in,
+    &__btn-sign-up {
+        @include user-btn();
+    }
+
+    @include screen-till($tablet) {
+        justify-content: center;
+        
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+}

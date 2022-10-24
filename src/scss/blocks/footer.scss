@@ -1,0 +1,36 @@
+.footer {
+    @include flex(space-between, $align-items: center, $row-gap: 2rem);
+
+    width: 100%;
+
+    background-color: $black;
+    box-shadow: 0 0 2rem $brown;
+
+    @include screen-from($desktop) {
+        padding: 3rem;
+    }
+
+    @include screen-between($tablet, $desktop) {
+        padding: 2rem;
+    }
+
+    @include screen-till($tablet) {
+        flex-direction: column;
+        
+        padding: 2rem 1rem;
+    }
+
+    &__logo-svg {
+        path {
+            fill: $brown;
+        }
+    
+        &:hover path:first-of-type {
+            fill: $red;
+        }
+        
+        &:hover path:last-of-type {
+            fill: $green;
+        }
+    }
+}

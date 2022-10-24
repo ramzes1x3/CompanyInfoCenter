@@ -1,0 +1,75 @@
+{% layout "defaultLayout.liquid", title: 'Building add form' %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Complete a simple form!</h2>
+
+            <form
+                class="form" 
+                method="post"
+                action="/buildingAddForm"
+                name="buildingAdding"
+            >
+                <input
+                    class="form__input"
+                    type="hidden"
+                    id="csrf_token"
+                    name="csrf"
+                    value="{{ csrfToken }}"
+                >
+                <div class="form__block">
+                    <label 
+                        class="form__label form__label_hidden"
+                        for="cityId"
+                    >
+                        City id: 
+                    </label>
+                    <input
+                        class="form__input"
+                        type="number"
+                        id="cityId"
+                        name="city_id"
+                        placeholder="City id"
+                    >
+                </div>
+                <div class="form__block">
+                    <label
+                        class="form__label form__label_hidden"
+                        for="buildingStreet"
+                    >
+                        Building street:
+                    </label>
+                    <input
+                        class="form__input"
+                        type="text"
+                        id="buildingStreet"
+                        name="street"
+                        placeholder="Building street"
+                    >
+                </div>
+                <div class="form__block">
+                    <label
+                        class="form__label form__label_hidden"
+                        for="buildingHouse"
+                    >
+                        Building house:
+                    </label>
+                    <input
+                        class="form__input"
+                        type="text"
+                        id="buildingHouse"
+                        name="house"
+                        placeholder="Building house"
+                    >
+                </div>
+                <button
+                    class="form__button button button_transparent"
+                    type="submit"
+                >
+                    Add building
+                </button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

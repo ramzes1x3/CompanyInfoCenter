@@ -1,0 +1,9 @@
+.social-list {
+    @include flex(space-between, $align-items: center, $column-gap: 2.5rem);
+
+    &__item {
+        &:hover path {
+            fill: $brown;
+        }
+    }
+}

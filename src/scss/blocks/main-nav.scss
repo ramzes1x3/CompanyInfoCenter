@@ -1,0 +1,35 @@
+.main-nav {
+    @include screen-till($tablet) {
+        flex-direction: column;
+
+        width: 100%;
+        padding: 1.5rem 0;
+    }
+
+    &__list {
+        @include flex(center, wrap, center, row, 5rem, 1.2rem);
+
+        width: 100%;
+
+        @include screen-till($tablet) {
+            row-gap: 2rem;
+        }
+    }
+
+    &__item {
+        cursor: pointer;
+
+        &:hover {
+            color: $brown;
+            text-shadow: 0 0 2.5rem $light-violet;
+        }
+    
+        &:active {
+            opacity: 0.5;
+        }
+
+        @include screen-till($tablet) {
+            width: 100%;
+        }
+    }
+}

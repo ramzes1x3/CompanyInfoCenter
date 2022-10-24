@@ -1,0 +1,33 @@
+{% layout "defaultLayout.liquid", title: 'Company' %}
+{% assign company = this.getCompany %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Company!</h2>
+
+            <div class="company">
+                <img
+                    alt="Картинка здания"
+                    src="/img/company.jpg"
+                    class="company__img"
+                >
+                <p class="company__text">
+                    Name: {{ company.name }}
+                </p>
+                <p class="company__text">
+                    Number of employees: {{ company.numberOfEmployees }}
+                </p>
+                <p class="company__text">
+                    Foundation year: {{ company.foundationYear }}
+                </p>
+                <a
+                    href="/deleteCompany?id={{ company.id }}"
+                    class="company__button button button_violet"
+                >
+                    Удалить
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

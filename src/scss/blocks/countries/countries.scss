@@ -1,0 +1,5 @@
+.countries {
+    &__list {
+        @include items-list();
+    }
+}

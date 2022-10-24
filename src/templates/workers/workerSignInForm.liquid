@@ -1,0 +1,64 @@
+{% layout "defaultLayout.liquid", title: 'Sign in' %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Sign in</h2>
+
+            {% if errMessage != undefined%}
+                <h3 class="main__error-title"> {{ errMessage }} </h3>
+            {% endif %}
+
+            <form
+                class="form" 
+                method="POST"
+                action="/workerSignInForm"
+                name="WorkerSignInForm"
+            >
+                <input
+                    class="form__input"
+                    type="hidden"
+                    id="csrf_token"
+                    name="csrf"
+                    value="{{ csrfToken }}"
+                >
+                <div class="form__block">
+                    <label
+                        class="form__label form__label_hidden"
+                        for="signInEmail"
+                    >
+                        Email:
+                    </label>
+                    <input
+                        class="form__input"
+                        type="email"
+                        id="signInEmail"
+                        name="email"
+                        placeholder="Email"
+                    >
+                </div>
+                <div class="form__block">
+                    <label
+                        class="form__label form__label_hidden"
+                        for="signInPassword"
+                    >
+                        Password:
+                    </label>
+                    <input
+                        class="form__input"
+                        type="password"
+                        id="signInPassword"
+                        name="password"
+                        placeholder="Password"
+                    >
+                </div>
+                <button
+                    class="form__button button button_transparent"
+                    type="submit"
+                >
+                    Login
+                </button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

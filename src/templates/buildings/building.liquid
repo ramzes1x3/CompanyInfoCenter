@@ -1,0 +1,29 @@
+{% layout "defaultLayout.liquid", title: 'Building' %}
+{% assign building = this.getBuilding %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Building!</h2>
+
+            <div class="building">
+                <img
+                    alt="Картинка здания"
+                    class="building__img"
+                    src="/img/building.jpg"
+                >
+                <address class="building__full-address">
+                    Address:
+                    {{ building.street }},
+                    {{ building.house }}
+                </address>
+                <a
+                    href="/deleteBuilding?id={{ building.id }}"
+                    class="building__button button button_violet"
+                >
+                    Удалить
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

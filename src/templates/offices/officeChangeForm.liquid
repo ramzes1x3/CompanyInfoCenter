@@ -1,0 +1,111 @@
+{% layout "defaultLayout.liquid", title: 'Office change form' %}
+{% assign office = this.getOffice %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Complete a simple form!</h2>
+
+            <form
+                class="form" 
+                method="post"
+                action="/officeChangeForm"
+                name="officeChangeForm"
+            >
+                <input
+                    class="form__input"
+                    type="hidden"
+                    id="csrf_token"
+                    name="csrf"
+                    value="{{ csrfToken }}"
+                >
+                <div class="form__block">
+                    <label 
+                        class="form__label"
+                        for="id"
+                    >
+                    Change the office id, to change the data
+                    </label>
+                    <input
+                        class="form__input"
+                        type="number"
+                        id="id"
+                        name="id"
+                        placeholder="Id"
+                        value="{{ office.id }}"
+                    >
+                </div>
+                <div class="form__block">
+                    <label 
+                        class="form__label"
+                        for="comapnyId"
+                    >
+                        Company ID 
+                    </label>
+                    <input
+                        class="form__input"
+                        type="number"
+                        id="comapnyId"
+                        name="company_id"
+                        placeholder="Company ID"
+                        value="{{ office.companyId }}"
+                    >
+                </div>
+                <div class="form__block">
+                    <label
+                        class="form__label"
+                        for="buildingId"
+                    >
+                        Bulding ID
+                    </label>
+                    <input
+                        class="form__input"
+                        type="number"
+                        id="buildingId"
+                        name="building_id"
+                        placeholder="Bulding ID"
+                        value="{{ office.buildingId }}"
+                    >
+                </div>
+                <div class="form__block">
+                    <label
+                        class="form__label"
+                        for="rentalPrice"
+                    >
+                        Rental price 
+                    </label>
+                    <input
+                        class="form__input"
+                        type="number"
+                        id="rentalPrice"
+                        name="rental_price"
+                        placeholder="Rental price"
+                        value="{{ office.rentalPrice }}"
+                    >
+                </div>
+                <div class="form__block">
+                    <label
+                        class="form__label"
+                        for="constructionYear"
+                    >
+                        Construction year 
+                    </label>
+                    <input
+                        class="form__input"
+                        type="number"
+                        id="constructionYear"
+                        name="construction_year"
+                        placeholder="Construction year"
+                        value="{{ office.constructionYear }}"
+                    >
+                </div>
+                <button
+                    class="form__button button button_transparent"
+                    type="submit"
+                >
+                    Change office
+                </button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

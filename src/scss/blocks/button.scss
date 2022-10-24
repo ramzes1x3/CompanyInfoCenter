@@ -1,0 +1,43 @@
+.button {
+    display: inline-flex;
+    justify-content: center;
+
+    width: 90%;
+    padding: 1rem 2rem;
+
+    background-color: $light-pink;
+    border-radius: 1.5rem;
+
+    &:hover {
+        box-shadow: 0 0 1.5rem $black;
+    }
+
+    &:active {
+        box-shadow: inset 0 0 1.5rem $black;
+    }
+
+    &_violet {
+        background-color: $light-violet;
+
+        &:hover {
+            box-shadow: 0 0 2rem $light-violet;
+        }
+
+        &:active {
+            box-shadow: inset 0 0 2rem $black;
+        }
+    }
+
+    &_transparent {
+        background-color: transparent;
+        box-shadow: 0 0 1.5rem $black;
+
+        &:hover {
+            box-shadow: 0 0 1.5rem $light-pink;
+        }
+    
+        &:active {
+            box-shadow: inset 0 0 1.5rem $light-pink;
+        }
+    }
+}

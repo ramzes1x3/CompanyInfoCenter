@@ -1,0 +1,42 @@
+{% layout "defaultLayout.liquid", title: 'Countries' %}
+{% assign countries = this.getCountries %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Countries!</h2>
+
+            <section class="countries">
+                {% if countries.length == 0 %} 
+                    <h3 class="countries__title">
+                        Country list is empty
+                    </h3>
+                {% else %}
+                    <ul class="countries__list">
+                        {% for country in countries %}
+                            <li class="countries__item countries-item">
+                                <img 
+                                    src="/img/country.jpg"
+                                    alt="Картинка здания"
+                                    class="countries-item__img"
+                                >
+                                <p class="countries-item__text">
+                                    Name: {{ country.name }}
+                                </p>
+                                <p class="countries-item__text">
+                                    Prestige: {{ country.prestige }}
+                                </p>
+                                <a
+                                    href="/country?id={{ country.id }}"
+                                    class="countries-item__button button"
+                                >
+                                    Подробнее
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% layout "defaultLayout.liquid", title: 'Companies' %}
+{% assign companies = this.getCompanies %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Companies!</h2>
+
+            <section class="companies">
+                {% if companies.length == 0 %} 
+                    <h3 class="companies__title">
+                        Company list is empty
+                    </h3>
+                {% else %}
+                    <ul class="companies__list">
+                        {% for company in companies %}
+                            <li class="companies__item companies-item">
+                                <img 
+                                    src="/img/company.jpg"
+                                    alt="Картинка здания"
+                                    class="companies-item__img"
+                                >
+                                <p class="companies-item__text">
+                                    Name: {{ company.name }}
+                                </p>
+                                <p class="companies-item__text">
+                                    Number of employees: {{ company.numberOfEmployees }}
+                                </p>
+                                <p class="companies-item__text">
+                                    Foundation year: {{ company.foundationYear }}
+                                </p>
+                                <a
+                                    href="/company?id={{ company.id }}"
+                                    class="companies-item__button button"
+                                >
+                                    Подробнее
+                                </a>
+                                <a
+                                    href="/companyChangeForm?id={{ company.id }}"
+                                    class="companies-item__button button"
+                                >
+                                    Изменить
+                                </a>
+                                <a
+                                    href="/deleteCompany?id={{ company.id }}"
+                                    class="companies-item__button button"
+                                >
+                                    Удалить
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+{% endblock %}

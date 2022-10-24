@@ -1,0 +1,20 @@
+{% layout "defaultLayout.liquid", title: '500' %}
+
+{% block content %}
+    <main>
+        <div class="exception-page">
+            <div class="exception-page__wrapper">
+                <div class="exception-page__main-text">500</div>
+                <div class="exception-page__text">
+                    {{ errMessage }}
+                </div>
+                <a 
+                    href="/"
+                    class="exception-page__link-home-page"
+                >
+                    Try to go to home page
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

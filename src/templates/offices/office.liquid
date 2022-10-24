@@ -1,0 +1,36 @@
+{% layout "defaultLayout.liquid", title: 'Office' %}
+{% assign office = this.getOffice %}
+
+{% block content %}
+    <main class="main">
+        <div class="main__content-wrapper">
+            <h2 class="main__title">Office!</h2>
+
+            <div class="office">
+                <img
+                    alt="Картинка здания"
+                    src="/img/office.jpg"
+                    class="office__img"
+                >
+                <p class="office__text">
+                    Company ID: {{ office.companyId }}
+                </p>
+                <p class="office__text">
+                    Building ID: {{ office.buildingId }}
+                </p>
+                <p class="office__text">
+                    Rental price: {{ office.rentalPrice }}
+                </p>
+                <p class="office__text">
+                    Construction year: {{ office.constructionYear }}
+                </p>
+                <a
+                    href="/deleteOffice?id={{ office.id }}"
+                    class="office__button button button_violet"
+                >
+                    Удалить
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

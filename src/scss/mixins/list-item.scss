@@ -1,0 +1,33 @@
+@mixin list-item() {
+    @include flex(space-around, wrap, center, column, 1rem, 1rem);
+
+    width: 23.3%;
+    padding: 0.6rem 0.6rem 2rem 0.6rem;
+
+    @include font(1.6rem, 1.4, $color: $black);
+    text-align: center;
+
+    background-color: $list-item-bg;
+    border-radius: 1rem;
+
+    @include screen-between($tablet, $desktop) {
+        width: 30%;
+    }
+
+    @include screen-till($tablet) {
+        width: 80%;
+    }
+
+    &:hover {
+        background-color: $list-item-hover-bg;
+        box-shadow: 0 0 2rem $blue-neon;
+    }
+
+    &__img {
+        width: 100%;
+    
+        object-fit: cover;
+        object-position: center;
+        border-radius: 1rem;
+    }
+}
