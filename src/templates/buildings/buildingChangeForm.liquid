@@ -1,5 +1,5 @@
 {% layout "defaultLayout.liquid", title: 'Building change form' %}
-{% assign building = this.getBuilding %}
+{% assign building = this.getData %}
 
 {% block content %}
     <main class="main">
@@ -38,15 +38,15 @@
                 <div class="form__block">
                     <label 
                         class="form__label"
-                        for="cityId"
+                        for="city_id"
                     >
                         City id 
                     </label>
                     <input
                         class="form__input"
                         type="number"
-                        id="cityId"
-                        name="city_id"
+                        id="city_id"
+                        name="cityId"
                         placeholder="City id"
                         value="{{ building.cityId }}"
                     >

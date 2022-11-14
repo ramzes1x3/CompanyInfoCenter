@@ -1,5 +1,5 @@
 {% layout "defaultLayout.liquid", title: 'Office change form' %}
-{% assign office = this.getOffice %}
+{% assign office = this.getData %}
 
 {% block content %}
     <main class="main">
@@ -38,15 +38,15 @@
                 <div class="form__block">
                     <label 
                         class="form__label"
-                        for="comapnyId"
+                        for="company_id"
                     >
                         Company ID 
                     </label>
                     <input
                         class="form__input"
                         type="number"
-                        id="comapnyId"
-                        name="company_id"
+                        id="company_id"
+                        name="companyId"
                         placeholder="Company ID"
                         value="{{ office.companyId }}"
                     >
@@ -54,15 +54,15 @@
                 <div class="form__block">
                     <label
                         class="form__label"
-                        for="buildingId"
+                        for="building_id"
                     >
                         Bulding ID
                     </label>
                     <input
                         class="form__input"
                         type="number"
-                        id="buildingId"
-                        name="building_id"
+                        id="building_id"
+                        name="buildingId"
                         placeholder="Bulding ID"
                         value="{{ office.buildingId }}"
                     >
@@ -70,15 +70,15 @@
                 <div class="form__block">
                     <label
                         class="form__label"
-                        for="rentalPrice"
+                        for="rental_price"
                     >
                         Rental price 
                     </label>
                     <input
                         class="form__input"
                         type="number"
-                        id="rentalPrice"
-                        name="rental_price"
+                        id="rental_price"
+                        name="rentalPrice"
                         placeholder="Rental price"
                         value="{{ office.rentalPrice }}"
                     >
@@ -86,15 +86,15 @@
                 <div class="form__block">
                     <label
                         class="form__label"
-                        for="constructionYear"
+                        for="construction_year"
                     >
                         Construction year 
                     </label>
                     <input
                         class="form__input"
                         type="number"
-                        id="constructionYear"
-                        name="construction_year"
+                        id="construction_year"
+                        name="constructionYear"
                         placeholder="Construction year"
                         value="{{ office.constructionYear }}"
                     >

@@ -1,0 +1,16 @@
+export enum DiType {
+    companyService = 'companyService',
+    companyResource = 'companyResource',
+    companyView = 'companyView',
+    companiesView = 'companiesView',
+    companyApiController = 'companyApiController',
+    companiesApiController = 'companiesApiController',
+    companiesController = 'companiesController',
+    companyController = 'companyController',
+    companyAddFormController = 'companyAddFormController',
+    companyChangeFormController = 'companyChangeFormController',
+    companyDeleteController = 'companyDeleteController',
+    companyApiRouter = 'companyApiRouter',
+    buildingService = 'buildingService',
+    officeService = 'officeService',
+}

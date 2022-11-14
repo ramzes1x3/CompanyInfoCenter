@@ -1,5 +1,5 @@
 {% layout "defaultLayout.liquid", title: 'Company change form' %}
-{% assign company = this.getCompany %}
+{% assign company = this.getData %}
 
 {% block content %}
     <main class="main">
@@ -54,15 +54,15 @@
                 <div class="form__block">
                     <label
                         class="form__label"
-                        for="numberOfEmployees"
+                        for="number_of_employees"
                     >
                         Number of employees 
                     </label>
                     <input
                         class="form__input"
                         type="number"
-                        id="numberOfEmployees"
-                        name="number_of_employees"
+                        id="number_of_employees"
+                        name="numberOfEmployees"
                         placeholder="Number of employees"
                         value="{{ company.numberOfEmployees }}"
                     >
@@ -70,15 +70,15 @@
                 <div class="form__block">
                     <label
                         class="form__label"
-                        for="foundationYear"
+                        for="foundation_year"
                     >
                         Foundation year 
                     </label>
                     <input
                         class="form__input"
                         type="number"
-                        id="foundationYear"
-                        name="foundation_year"
+                        id="foundation_year"
+                        name="foundationYear"
                         placeholder="Foundation year"
                         value="{{ company.foundationYear }}"
                     >

@@ -98,3 +98,11 @@ export const watchNode = parallel(
         startNodemon,
     )
 )
+
+export const build = series(
+    clear,
+    scss,
+    script,
+    typescript,
+    parallel(img, fonts, liquid)
+)

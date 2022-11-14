@@ -1,6 +1,6 @@
 {% layout "defaultLayout.liquid", title: 'Buildings' %}
-{% assign buildings = this.getBuildings %}
-{% assign cities = cities.getCities %}
+{% assign buildings = this.getData %}
+{% assign cities = cities.getData %}
 
 {% block content %}
     <main class="main">
