@@ -11,23 +11,24 @@ export default class CachingToFile implements ICache {
 
     @ShowExecutionTime
     public async getCache<T>(cacheKey: string): Promise<T | undefined> {
-        let cachedJsonData;
+        let cachedJsonData = '';
 
         try {
             open(this.getCachePath(cacheKey), 'r', async (err: any) => {
                 if (err) {
                     if (err.code === 'ENOENT') {
                         console.error(`${this.getCachePath(cacheKey)} does not exist`);
+
                         return;
                     }
                 }
 
                 const cachedData: string = await fs.readFile(this.getCachePath(cacheKey), { encoding: 'utf-8' });
 
-                cachedJsonData = await JSON.parse(cachedData);
+                cachedJsonData = cachedData;
             });
 
-            return cachedJsonData;
+            return JSON.parse(cachedJsonData);
         } catch(err: any) {
             console.error(err.message);
         }
@@ -74,15 +75,15 @@ export default class CachingToFile implements ICache {
 
     private createDir() {
         try {
-            open(this.cacheDir, 'r', async (err: any) => {
+            open(this.cacheDir, 'r', (err: any) => {
                 if (err) {
                     if (err.code === 'ENOENT') {
                         console.error('Dir does not exist');
+                        mkdir(this.cacheDir, {recursive: true}, err => {});
+
                         return;
                     }
                 }
-
-                mkdir(this.cacheDir, {recursive: true}, err => {});
             });
         } catch(err: any) {
             console.error(err.message);
