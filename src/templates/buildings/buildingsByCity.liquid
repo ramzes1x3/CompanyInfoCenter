@@ -31,12 +31,14 @@
                                     >
                                         Подробнее
                                     </a>
-                                    <a
-                                        href="/buildingChangeForm?id={{ building.id }}"
-                                        class="buildings-item__button button"
-                                    >
-                                        Изменить
-                                    </a>
+                                    {% if isLoggedIn != undefined %}
+                                        <a
+                                            href="/buildingChangeForm?id={{ building.id }}"
+                                            class="buildings-item__button button"
+                                        >
+                                            Изменить
+                                        </a>
+                                    {% endif %}
                                 </li>
                             {% endfor %}
                     </ul>

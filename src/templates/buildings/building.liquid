@@ -17,12 +17,14 @@
                     {{ building.street }},
                     {{ building.house }}
                 </address>
-                <a
-                    href="/deleteBuilding?id={{ building.id }}"
-                    class="building__button button button_violet"
-                >
-                    Удалить
-                </a>
+                {% if isLoggedIn != undefined %}
+                    <a
+                        href="/deleteBuilding?id={{ building.id }}"
+                        class="building__button button button_violet"
+                    >
+                        Удалить
+                    </a>
+                {% endif %}
             </div>
         </div>
     </main>

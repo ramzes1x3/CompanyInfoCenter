@@ -38,18 +38,20 @@
                                 >
                                     Подробнее
                                 </a>
-                                <a
-                                    href="/officeChangeForm?id={{ office.id }}"
-                                    class="offices-item__button button"
-                                >
-                                    Изменить
-                                </a>
-                                <a
-                                    href="/deleteOffice?id={{ office.id }}"
-                                    class="offices-item__button button"
-                                >
-                                    Удалить
-                                </a>
+                                {% if isLoggedIn != undefined %}
+                                    <a
+                                        href="/officeChangeForm?id={{ office.id }}"
+                                        class="offices-item__button button"
+                                    >
+                                        Изменить
+                                    </a>
+                                    <a
+                                        href="/deleteOffice?id={{ office.id }}"
+                                        class="offices-item__button button"
+                                    >
+                                        Удалить
+                                    </a>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>

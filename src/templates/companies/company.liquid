@@ -21,12 +21,14 @@
                 <p class="company__text">
                     Foundation year: {{ company.foundationYear }}
                 </p>
-                <a
-                    href="/deleteCompany?id={{ company.id }}"
-                    class="company__button button button_violet"
-                >
-                    Удалить
-                </a>
+                {% if isLoggedIn != undefined %}
+                    <a
+                        href="/deleteCompany?id={{ company.id }}"
+                        class="company__button button button_violet"
+                    >
+                        Удалить
+                    </a>
+                {% endif %}
             </div>
         </div>
     </main>

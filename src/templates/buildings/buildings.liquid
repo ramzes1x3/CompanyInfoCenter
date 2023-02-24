@@ -32,18 +32,20 @@
                                 >
                                     Подробнее
                                 </a>
-                                <a
-                                    href="/buildingChangeForm?id={{ building.id }}"
-                                    class="buildings-item__button button"
-                                >
-                                    Изменить
-                                </a>
-                                <a
-                                    href="/deleteBuilding?id={{ building.id }}"
-                                    class="buildings-item__button button"
-                                >
-                                    Удалить
-                                </a>
+                                {% if isLoggedIn != undefined %}
+                                    <a
+                                        href="/buildingChangeForm?id={{ building.id }}"
+                                        class="buildings-item__button button"
+                                    >
+                                        Изменить
+                                    </a>
+                                    <a
+                                        href="/deleteBuilding?id={{ building.id }}"
+                                        class="buildings-item__button button"
+                                    >
+                                        Удалить
+                                    </a>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>

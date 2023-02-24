@@ -6,90 +6,97 @@
         <div class="main__content-wrapper">
             <h2 class="main__title">Complete a simple form!</h2>
 
-            <form
-                class="form" 
-                method="post"
-                action="/companyChangeForm"
-                name="companyChangeForm"
-            >
-                <input
-                    class="form__input"
-                    type="hidden"
-                    id="csrf_token"
-                    name="csrf"
-                    value="{{ csrfToken }}"
+            {% if isLoggedIn != undefined %}
+                <form
+                    class="form"
+                    method="post"
+                    action="/companyChangeForm"
+                    name="companyChangeForm"
                 >
-                <div class="form__block">
-                    <label 
-                        class="form__label"
-                        for="id"
-                    >
-                    Change the company id, to change the data
-                    </label>
                     <input
                         class="form__input"
-                        type="number"
-                        id="id"
-                        name="id"
-                        placeholder="Id"
-                        value="{{ company.id }}"
+                        type="hidden"
+                        id="csrf_token"
+                        name="csrf"
+                        value="{{ csrfToken }}"
                     >
-                </div>
-                <div class="form__block">
-                    <label 
-                        class="form__label"
-                        for="comapnyName"
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="id"
+                        >
+                        Change the company id, to change the data
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="id"
+                            name="id"
+                            placeholder="Id"
+                            value="{{ company.id }}"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="comapnyName"
+                        >
+                            Company name
+                        </label>
+                        <input
+                            class="form__input"
+                            type="text"
+                            id="comapnyName"
+                            name="name"
+                            placeholder="Company name"
+                            value="{{ company.name }}"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="number_of_employees"
+                        >
+                            Number of employees
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="number_of_employees"
+                            name="numberOfEmployees"
+                            placeholder="Number of employees"
+                            value="{{ company.numberOfEmployees }}"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="foundation_year"
+                        >
+                            Foundation year
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="foundation_year"
+                            name="foundationYear"
+                            placeholder="Foundation year"
+                            value="{{ company.foundationYear }}"
+                        >
+                    </div>
+                    <button
+                        class="form__button button button_transparent"
+                        type="submit"
                     >
-                        Company name 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="text"
-                        id="comapnyName"
-                        name="name"
-                        placeholder="Company name"
-                        value="{{ company.name }}"
-                    >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label"
-                        for="number_of_employees"
-                    >
-                        Number of employees 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="number_of_employees"
-                        name="numberOfEmployees"
-                        placeholder="Number of employees"
-                        value="{{ company.numberOfEmployees }}"
-                    >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label"
-                        for="foundation_year"
-                    >
-                        Foundation year 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="foundation_year"
-                        name="foundationYear"
-                        placeholder="Foundation year"
-                        value="{{ company.foundationYear }}"
-                    >
-                </div>
-                <button
-                    class="form__button button button_transparent"
-                    type="submit"
-                >
-                    Change company
-                </button>
-            </form>
+                        Change company
+                    </button>
+                </form>
+            {% else %}
+                <h2 class="main__undefined-user-title">
+                    You need to register
+                </h2>
+            {% endif %}
+
         </div>
     </main>
 {% endblock %}

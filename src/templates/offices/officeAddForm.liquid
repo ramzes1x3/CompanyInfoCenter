@@ -5,86 +5,92 @@
         <div class="main__content-wrapper">
             <h2 class="main__title">Complete a simple form!</h2>
 
-            <form
-                class="form" 
-                method="post"
-                action="/officeAddForm"
-                name="officeAdding"
-            >
-                <input
-                    class="form__input"
-                    type="hidden"
-                    id="csrf_token"
-                    name="csrf"
-                    value="{{ csrfToken }}"
+            {% if isLoggedIn != undefined %}
+                <form
+                    class="form"
+                    method="post"
+                    action="/officeAddForm"
+                    name="officeAdding"
                 >
-                <div class="form__block">
-                    <label 
-                        class="form__label form__label_hidden"
-                        for="company_id"
-                    >
-                        Company ID: 
-                    </label>
                     <input
                         class="form__input"
-                        type="number"
-                        id="company_id"
-                        name="companyId"
-                        placeholder="Company ID"
+                        type="hidden"
+                        id="csrf_token"
+                        name="csrf"
+                        value="{{ csrfToken }}"
                     >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label form__label_hidden"
-                        for="building_id"
+                    <div class="form__block">
+                        <label
+                            class="form__label form__label_hidden"
+                            for="company_id"
+                        >
+                            Company ID:
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="company_id"
+                            name="companyId"
+                            placeholder="Company ID"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label form__label_hidden"
+                            for="building_id"
+                        >
+                            Bulding id:
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="building_id"
+                            name="buildingId"
+                            placeholder="Bulding ID"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label form__label_hidden"
+                            for="rental_price"
+                        >
+                            Rental price:
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="rental_price"
+                            name="rentalPrice"
+                            placeholder="Rental price"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label form__label_hidden"
+                            for="construction_year"
+                        >
+                            Construction year:
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="construction_year"
+                            name="constructionYear"
+                            placeholder="Construction year"
+                        >
+                    </div>
+                    <button
+                        class="form__button button button_transparent"
+                        type="submit"
                     >
-                        Bulding id:
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="building_id"
-                        name="buildingId"
-                        placeholder="Bulding ID"
-                    >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label form__label_hidden"
-                        for="rental_price"
-                    >
-                        Rental price: 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="rental_price"
-                        name="rentalPrice"
-                        placeholder="Rental price"
-                    >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label form__label_hidden"
-                        for="construction_year"
-                    >
-                        Construction year: 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="construction_year"
-                        name="constructionYear"
-                        placeholder="Construction year"
-                    >
-                </div>
-                <button
-                    class="form__button button button_transparent"
-                    type="submit"
-                >
-                    Add office
-                </button>
-            </form>
+                        Add office
+                    </button>
+                </form>
+            {% else %}
+                <h2 class="main__undefined-user-title">
+                    You need to register
+                </h2>
+            {% endif %}
         </div>
     </main>
 {% endblock %}

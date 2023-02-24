@@ -35,18 +35,20 @@
                                 >
                                     Подробнее
                                 </a>
-                                <a
-                                    href="/companyChangeForm?id={{ company.id }}"
-                                    class="companies-item__button button"
-                                >
-                                    Изменить
-                                </a>
-                                <a
-                                    href="/deleteCompany?id={{ company.id }}"
-                                    class="companies-item__button button"
-                                >
-                                    Удалить
-                                </a>
+                                {% if isLoggedIn != undefined %}
+                                    <a
+                                        href="/companyChangeForm?id={{ company.id }}"
+                                        class="companies-item__button button"
+                                    >
+                                        Изменить
+                                    </a>
+                                    <a
+                                        href="/deleteCompany?id={{ company.id }}"
+                                        class="companies-item__button button"
+                                    >
+                                        Удалить
+                                    </a>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>

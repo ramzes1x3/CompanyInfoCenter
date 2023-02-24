@@ -24,12 +24,14 @@
                 <p class="office__text">
                     Construction year: {{ office.constructionYear }}
                 </p>
-                <a
-                    href="/deleteOffice?id={{ office.id }}"
-                    class="office__button button button_violet"
-                >
-                    Удалить
-                </a>
+                {% if isLoggedIn != undefined %}
+                    <a
+                        href="/deleteOffice?id={{ office.id }}"
+                        class="office__button button button_violet"
+                    >
+                        Удалить
+                    </a>
+                {% endif %}
             </div>
         </div>
     </main>

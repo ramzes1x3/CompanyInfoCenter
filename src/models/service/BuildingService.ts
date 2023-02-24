@@ -1,4 +1,4 @@
-import { Building, DbBuilding, IBuildingResource, IBuildingService } from '../../abstracts/building';
+import { Building, DbBuilding, IBuildingResource } from '../../abstracts/building';
 import { DbCity, ICityResource } from '../../abstracts/city';
 import BuildingConverter from '../../converters/BuildingConverter.js';
 import ExistenceEntityError from '../../errors/ExistenceEntityError.js';
@@ -8,7 +8,7 @@ import AbstractService from './AbstractService.js';
 import CityResource from '../resource/CityResource.js';
 import ValidateId from '../../decorators/ValidateId.js';
 
-export default class BuildingService extends AbstractService implements IBuildingService {
+export default class BuildingService extends AbstractService {
     private buildingResource: IBuildingResource;
     private cityResource: ICityResource;
 

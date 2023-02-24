@@ -1,16 +1,33 @@
-import { promises as fs } from 'fs';
+import { promises as fs, open, mkdir } from 'fs';
 import { ICache } from '../../abstracts/cache.js';
 import ShowExecutionTime from '../../decorators/ExecutionTime.js';
 
 export default class CachingToFile implements ICache {
     private cacheDir = './cache';
 
+    constructor() {
+        this.createDir();
+    }
+
     @ShowExecutionTime
     public async getCache<T>(cacheKey: string): Promise<T | undefined> {
-        try {
-            const cachedData: string = await fs.readFile(this.getCachePath(cacheKey), { encoding: 'utf-8' });
+        let cachedJsonData;
 
-            return JSON.parse(cachedData);
+        try {
+            open(this.getCachePath(cacheKey), 'r', async (err: any) => {
+                if (err) {
+                    if (err.code === 'ENOENT') {
+                        console.error(`${this.getCachePath(cacheKey)} does not exist`);
+                        return;
+                    }
+                }
+
+                const cachedData: string = await fs.readFile(this.getCachePath(cacheKey), { encoding: 'utf-8' });
+
+                cachedJsonData = await JSON.parse(cachedData);
+            });
+
+            return cachedJsonData;
         } catch(err: any) {
             console.error(err.message);
         }
@@ -53,5 +70,22 @@ export default class CachingToFile implements ICache {
 
     private getPendingUnlinkFiles(files: string[]): Promise<void>[] {
         return files.map(fileName => fs.unlink(`${this.cacheDir}/${fileName}`));
+    }
+
+    private createDir() {
+        try {
+            open(this.cacheDir, 'r', async (err: any) => {
+                if (err) {
+                    if (err.code === 'ENOENT') {
+                        console.error('Dir does not exist');
+                        return;
+                    }
+                }
+
+                mkdir(this.cacheDir, {recursive: true}, err => {});
+            });
+        } catch(err: any) {
+            console.error(err.message);
+        }
     }
 }

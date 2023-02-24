@@ -6,106 +6,112 @@
         <div class="main__content-wrapper">
             <h2 class="main__title">Complete a simple form!</h2>
 
-            <form
-                class="form" 
-                method="post"
-                action="/officeChangeForm"
-                name="officeChangeForm"
-            >
-                <input
-                    class="form__input"
-                    type="hidden"
-                    id="csrf_token"
-                    name="csrf"
-                    value="{{ csrfToken }}"
+            {% if isLoggedIn != undefined %}
+                <form
+                    class="form"
+                    method="post"
+                    action="/officeChangeForm"
+                    name="officeChangeForm"
                 >
-                <div class="form__block">
-                    <label 
-                        class="form__label"
-                        for="id"
-                    >
-                    Change the office id, to change the data
-                    </label>
                     <input
                         class="form__input"
-                        type="number"
-                        id="id"
-                        name="id"
-                        placeholder="Id"
-                        value="{{ office.id }}"
+                        type="hidden"
+                        id="csrf_token"
+                        name="csrf"
+                        value="{{ csrfToken }}"
                     >
-                </div>
-                <div class="form__block">
-                    <label 
-                        class="form__label"
-                        for="company_id"
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="id"
+                        >
+                        Change the office id, to change the data
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="id"
+                            name="id"
+                            placeholder="Id"
+                            value="{{ office.id }}"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="company_id"
+                        >
+                            Company ID
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="company_id"
+                            name="companyId"
+                            placeholder="Company ID"
+                            value="{{ office.companyId }}"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="building_id"
+                        >
+                            Bulding ID
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="building_id"
+                            name="buildingId"
+                            placeholder="Bulding ID"
+                            value="{{ office.buildingId }}"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="rental_price"
+                        >
+                            Rental price
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="rental_price"
+                            name="rentalPrice"
+                            placeholder="Rental price"
+                            value="{{ office.rentalPrice }}"
+                        >
+                    </div>
+                    <div class="form__block">
+                        <label
+                            class="form__label"
+                            for="construction_year"
+                        >
+                            Construction year
+                        </label>
+                        <input
+                            class="form__input"
+                            type="number"
+                            id="construction_year"
+                            name="constructionYear"
+                            placeholder="Construction year"
+                            value="{{ office.constructionYear }}"
+                        >
+                    </div>
+                    <button
+                        class="form__button button button_transparent"
+                        type="submit"
                     >
-                        Company ID 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="company_id"
-                        name="companyId"
-                        placeholder="Company ID"
-                        value="{{ office.companyId }}"
-                    >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label"
-                        for="building_id"
-                    >
-                        Bulding ID
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="building_id"
-                        name="buildingId"
-                        placeholder="Bulding ID"
-                        value="{{ office.buildingId }}"
-                    >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label"
-                        for="rental_price"
-                    >
-                        Rental price 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="rental_price"
-                        name="rentalPrice"
-                        placeholder="Rental price"
-                        value="{{ office.rentalPrice }}"
-                    >
-                </div>
-                <div class="form__block">
-                    <label
-                        class="form__label"
-                        for="construction_year"
-                    >
-                        Construction year 
-                    </label>
-                    <input
-                        class="form__input"
-                        type="number"
-                        id="construction_year"
-                        name="constructionYear"
-                        placeholder="Construction year"
-                        value="{{ office.constructionYear }}"
-                    >
-                </div>
-                <button
-                    class="form__button button button_transparent"
-                    type="submit"
-                >
-                    Change office
-                </button>
-            </form>
+                        Change office
+                    </button>
+                </form>
+            {% else %}
+                <h2 class="main__undefined-user-title">
+                    You need to register
+                </h2>
+            {% endif %}
         </div>
     </main>
 {% endblock %}
